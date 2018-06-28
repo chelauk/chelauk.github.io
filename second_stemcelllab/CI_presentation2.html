@@ -773,7 +773,7 @@ hljs.initHighlightingOnLoad();
    
   
 
-<style>#rcorners2 {    border-radius: 25px;    border: 2px solid #73AD21;    padding: 20px;     width: 200px;    height: 150px;    }.button {    background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 15px 32px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: 20px;    margin: 4px 2px;    cursor: pointer;}.button2 {background-color: #008CBA;} /* Blue */.button3 {background-color: #f44336;} /* Red */ .button4 {background-color: #e7e7e7; color: black;} /* Gray */ .button5 {background-color: #555555;} /* Black */p.normal {    font-style: normal;}p.large {    font-size: 50px;}.footer {    color: black; background: white;    position: fixed; top: 90%;    text-align:left; width:100%;}</style>
+<style>#rcorners2 {    border-radius: 25px;    border: 2px solid #73AD21;    padding: 20px;     width: 200px;    height: 150px;    }.button {    background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 15px 32px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: 20px;    margin: 4px 2px;    cursor: pointer;}.button2 {background-color: #008CBA;} /* Blue */.button3 {background-color: #f44336;} /* Red */ .button4 {background-color: #e7e7e7; color: black;} /* Gray */ .button5 {background-color: #555555;} /* Black */p.normal {    font-style: normal;}p.large {    font-size: 50px;}.footer {    color: black; background: white;    position: fixed; top: 95%;    text-align:left; width:100%;}</style>
 
 
 
@@ -805,122 +805,87 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Bulk RNA-seq</h3>
 <div class="slideContent" >
-<h3>counts -> DESeq2</h3>
-
-<p></p>
-
-<p></p>
-
-<h4>replicates, pvalues and padj</h4>
+<p>counts -&gt; DESeq2</p>
 
 <ul>
 <li>test the null hypothesis that the (LFC) between treatment and control for a gene’s expression is exactly zero,</li>
 <li>i.e., that the gene is not at all affected by the treatment.</li>
 </ul>
 
-<p>Within-group variability, i.e., the variability between replicates, is modeled by a dispersion parameter which describes the variance of counts.</p>
+<p>Within-group variability, i.e., the variability between replicates, is modeled by a dispersion parameter which describes the variance of counts.
+Accurate estimation of the dispersion parameter is critical for the statistical inference of differential expression. Because we work with low numbers of replicates (e.g. 3), using DESeq2 we assume that genes of similar average expression strength have similar dispersion.</p>
 
-<p></p>Accurate estimation of the dispersion parameter is critical for the statistical inference of differential expression. Because we work with low numbers of replicates (e.g. 3), using DESeq2 we assume that genes of similar average expression strength have similar dispersion.</p></p>
-
-<p>onclick=&ldquo;location.href=&#39;<a href="https://chelauk.github.io/charlottas_transcripts.jpg&#x27;;%22%3Ealign">https://chelauk.github.io/charlottas_transcripts.jpg&#39;;&rdquo;&gt;align</a></button></p>
-
-<div class="footer">Michael I. Love, Simon Anders, and Wolfgang Huber
-06/13/2018</div>
+<div class="footer"><small>Michael I. Love, Simon Anders, and Wolfgang Huber 13/06/2018</small></div>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Single Cell RNA-seq</h3>
+
+<div class="slideContent noTitle" >
+<p><a href="https://chelauk.shinyapps.io/IPSC_DGE_2/">shiny_app</a></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>scRNA-seq</h3>
+<div class="mediaOnly slideContent" >
+<p><img src="ziegenhainEnardFig1.png" alt="methods"/></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>scRNA-seq</h3>
+<div class="mediaInline slideContent" >
+<p><img src="fetal_cell_qc.png" alt="qc_fetal"/></p>
+
+<p>scRNA-seq</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+
+<div class="mediaOnly slideContent noTitle" >
+<p><img src="plurimes_features.png" alt="qc_plurimes"/></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Analyses approaches</h3>
 <div class="slideContent" >
-<p><div class="w3-show-inline-block">
-  <div class="w3-bar">
-    <input type="button" class="button" value="fastqc" />
-    <button class = "button button2">trim</button>
-    <button class = "button button3" 
-    onclick="location.href='https://chelauk.github.io/charlottas_transcripts.jpg';">align</button>
-    <button class = "button button4" onclick="location.href='https://chelauk.github.io/fetal_cells_qc.html';">qc</button>
-  </div>
-  </div></p>
+<h3>Clustering</h3>
+
+<ul><h4>SC3<h4>
+<li>Automatically selects the best number of clusters 
+for the data</li>
+<li>Finds marker genes for each cluster found (if 
+significant)</li>
+</ul>
+
+<ul><h3>pseudotime</h3>
+<ul><h4>monocle</h4></ul>
+<ul><h4>tscan</h4></ul>
+</ul>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>ChIP-seq</h3>
-<div class="column column1 slideContent" >
-<p><div class="w3-show-inline-block">
-  <div class="w3-bar">
-    <input type="button" class="button" value="fastqc" />
-    <button class = "button button2">trim</button>
-    <button class = "button button3" >align</button>
-    <button class = "button button4" >qc</button>
-  </div>
-  </div></p>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<p><img src="https://chelauk.github.io/chipseq.jpg" alt="ChIP-seq"/></p>
+<h3>pseudotime</h3>
+<div class="mediaOnly slideContent" >
+<p><img src="HSMM_trajectory.png" alt="image"/></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>ATAC-seq</h3>
-<div class="column column1 slideContent" >
-<p><div class="w3-show-inline-block">
-  <div class="w3-bar">
-    <input type="button" class="button" value="fastqc" />
-    <button class = "button button2">trim</button>
-    <button class = "button button3" 
-    onclick="location.href='https://www.encodeproject.org/atac-seq/';">align</button>
-    <button class = "button button4" >qc</button>
-  </div>
-  </div> </p>
-
-
-</div>
-
-<div class="column column2 slideContent" >
-
-
-<p><img src="https://chelauk.github.io/atac_flowchart.jpg" alt="ATAC-seq"/></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>  WGS</h3>
+<h3>scde</h3>
 <div class="slideContent" >
-<p><div class="w3-show-inline-block">
-  <div class="w3-bar">
-    <input type="button" class="button" value="fastqc" />
-    <button class = "button button2">trim</button>
-    <button class = "button button3" >align</button>
-    <button class = "button button4" onclick="location.href='https://chelauk.github.io/Qualimap_report_BAM_QC.html';" >qc</button>
-  </div>
-  </div></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>  Analysis</h3>
-<div class="slideContent" >
-<p><div class="w3-show-inline-block">
-  <div class="w3-bar">
-    <input type="button" class = "button"         value = "DGE" 
-    onclick="location.href='https://chelauk.github.io/DGE.jpg';" /> 
-    <input type="button" class = "button button2" value = "scRNA-seq"
-    onclick="location.href='https://chelauk.github.io/monocle.jpg';" />
-    <input type="button" class = "button button3" value = "ChIP-seq" />
-    <input type="button" class = "button button4" value = "ATAC-seq" />
-  </div>
-  </div></p>
+<p><a href="https://chelauk.shinyapps.io/scde_shiny/">shiny_app</a></p>
 
 </div>
 
