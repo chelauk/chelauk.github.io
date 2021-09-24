@@ -52,18 +52,14 @@ class: split-40
 ---
 
 # There is a lot of workflow software available
-eg:
-* ruffus
-* snakemake
-* WDL (Workflow Description Language)
-* CWL (Common Workflow Languages)
+.image-100[![image](./images/pipelines.png)]
 
 ---
 
 # nextflow
 a commonly used workflow organiser which has several advantages.
 
-The central principle of nextflow is that an *input* which can variable representing perhaps a file goes into a named `process`
+The central principle of nextflow is that an *input* which can variable representing say a file goes into a named `process`
 which then produces an *output* which may be used by a further `process` down the line
 
 
@@ -161,6 +157,36 @@ installing software is often a nightmare because of dependencies and permissions
 These are automatically downloaded and utilised when you run the pipeline.
 The docker/singularity images match those environments available on conda.
 https://depot.galaxyproject.org/singularity/
+
+---
+
+```nextflow
+                                      ,--./,-.
+      ___     __   __   __   ___     /,-._.--~\
+|\ | |__  __ /  ` /  \ |__) |__         }  {
+| \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                      `._,._,'
+
+nf-core/tools version 2.1
+
+
+
+INFO     [✓] Default parameters look valid                         schema.py:224
+INFO     [✓] Pipeline schema looks valid (found 44 params)          schema.py:84
+❓ Unrecognised 'params.intervals' found in the schema but not in the pipeline 
+config! Remove it? [y/n]: n
+❓ Unrecognised 'params.stage' found in the schema but not in the pipeline config! Remove it? [y/n]: n
+✨ Found 'params.library' in the pipeline config, but not in the schema. Add to pipeline schema? [y/n]: n
+INFO     Writing schema with 44 params: './nextflow_schema.json'                           schema.py:160
+🚀  Launch web builder for customisation and editing? [y/n]: y
+INFO     Opening URL: https://nf-co.re/pipeline_schema_builder?id=1632497071_ad44d303f657  schema.py:580
+INFO     Waiting for form to be completed in the browser. Remember to click Finished when  schema.py:582
+```
+---
+
+
+.image-100[![Centre-aligned image](./images/schema.png)]
+
 
 ---
 
