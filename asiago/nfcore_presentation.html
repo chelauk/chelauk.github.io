@@ -142,17 +142,6 @@ add modules into the pipeline?
 nf-core tools module insert
 ```
 
----
-
-# software
-
-installing software is often a nightmare because of dependencies and permissions
-
-* nf-core solves that by using self contained systems like docker and singularity
-
-These are automatically downloaded and utilised when you run the pipeline.
-The docker/singularity images match those environments available on conda.
-https://depot.galaxyproject.org/singularity/
 
 ---
 
@@ -167,10 +156,42 @@ process FASTQTOBAM {
 *     --read-structures "+T 12M11S+T" \\
 *     --sample "sampleID" \\
 *     --library "sampleID"
-````
+```
 ---
 
+```groovy
+include { UMI_QC }       from './modules/local/subworkflow/umi_qc/umi_qc'                addParams(
+    fastqc_options:                       modules['fastqc'],
+    multiqc_options:                      modules['multiqc']
+)```
 
+
+---
+modules.confg
+
+```groovy
+'markduplicates' {
+  args             = "ASSUME_SORTED=true REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=LENIENT TMP_DIR=tmp"
+  suffix           = ".md"
+  publish_by_id    = "true"
+  publish_dir      = "preprocessing"
+  publish_dir2     = "reports/gatk_mark_duplicates"
+  publish_files    = [ 'md.bam'  : 'mark_duplicates', 'md.bam.bai' : 'mark_duplicates' ]
+  publish_files2   = [ 'metrics' : 'mark_duplicates_metrics']
+}
+```
+
+---
+
+# software
+
+installing software is often a nightmare because of dependencies and permissions
+
+* nf-core solves that by using self contained systems like docker and singularity
+
+These are automatically downloaded and utilised when you run the pipeline.
+The docker/singularity images match those environments available on conda.
+https://depot.galaxyproject.org/singularity/
 
 ---
 
