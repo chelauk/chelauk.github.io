@@ -147,6 +147,8 @@ nf-core tools module insert
 
 # arguments and flags.
 
+* necessary/optional flags
+
 ```groovy
 process FASTQTOBAM {
     fgbio --tmp-dir=tmpFolder \\
@@ -171,12 +173,10 @@ modules.confg
 
 ```groovy
 'markduplicates' {
-  args             = "ASSUME_SORTED=true REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=LENIENT TMP_DIR=tmp"
-  suffix           = ".md"
-  publish_by_id    = "true"
+  args             = "ASSUME_SORTED=true"
   publish_dir      = "preprocessing"
-  publish_dir2     = "reports/gatk_mark_duplicates"
-  publish_files    = [ 'md.bam'  : 'mark_duplicates', 'md.bam.bai' : 'mark_duplicates' ]
+  publish_dir2     = "reports"
+  publish_files    = [ 'md.bam'  : 'mark_duplicates' ]
   publish_files2   = [ 'metrics' : 'mark_duplicates_metrics']
 }
 ```
