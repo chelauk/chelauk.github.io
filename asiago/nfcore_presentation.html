@@ -33,7 +33,7 @@
 
 class: center, middle
 
-# Asiago Accelerator retreat
+# Asiago Accelerator
 
 ---
 
@@ -81,13 +81,13 @@ process INDEX {
 within the nextflow system these processes can easily be organised
 ### workflows
 
-```nextflow
+```javascript
 include { INDEX; FASTQC; QUANT; MULTIQC } from './some/module/script.nf' 
 
 read_pairs_ch = channel.fromFilePairs( params.reads)
 
 workflow {
-  INDEX( params.transcriptome )
+* INDEX( params.transcriptome )
   FASTQC( read_pairs_ch )
   QUANT( INDEX.out, read_pairs_ch )
   MULTIQC( QUANT.out.mix(FASTQC.out).collect(), multiqc_file )
@@ -134,18 +134,14 @@ nextflow run sarek -profile singularity
 
 want to build your own pipeline?
 
-```nextflow
+```groovy
 nf-core tools create
 ```
 add modules into the pipeline?
-```nextflow
+```groovy
 nf-core tools module insert
 ```
 
-* The principle of the nf-core architecture is that it is standardised as much as possible
-
-* nf-core also encourages sharing because if you have a pipeline it is likely to be useful for someone
-else
 ---
 
 # software
@@ -160,28 +156,22 @@ https://depot.galaxyproject.org/singularity/
 
 ---
 
-```nextflow
-                                      ,--./,-.
-      ___     __   __   __   ___     /,-._.--~\
-|\ | |__  __ /  ` /  \ |__) |__         }  {
-| \| |       \__, \__/ |  \ |___     \`-._,-`-,
-                                      `._,._,'
+# arguments and flags.
 
-nf-core/tools version 2.1
+```groovy
+process FASTQTOBAM {
+    fgbio --tmp-dir=tmpFolder \\
+      FastqToBam \\
+      -i read1_fastq.gz read2_fastq.gz \\
+      -o sampleID_umi_converted.bam" \\
+*     --read-structures "+T 12M11S+T" \\
+*     --sample "sampleID" \\
+*     --library "sampleID"
+````
+---
 
 
 
-INFO     [✓] Default parameters look valid                         schema.py:224
-INFO     [✓] Pipeline schema looks valid (found 44 params)          schema.py:84
-❓ Unrecognised 'params.intervals' found in the schema but not in the pipeline 
-config! Remove it? [y/n]: n
-❓ Unrecognised 'params.stage' found in the schema but not in the pipeline config! Remove it? [y/n]: n
-✨ Found 'params.library' in the pipeline config, but not in the schema. Add to pipeline schema? [y/n]: n
-INFO     Writing schema with 44 params: './nextflow_schema.json'                           schema.py:160
-🚀  Launch web builder for customisation and editing? [y/n]: y
-INFO     Opening URL: https://nf-co.re/pipeline_schema_builder?id=1632497071_ad44d303f657  schema.py:580
-INFO     Waiting for form to be completed in the browser. Remember to click Finished when  schema.py:582
-```
 ---
 
 
@@ -217,7 +207,14 @@ class: center, middle
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+          highlightLanguage: 'groovy',
+          highlightStyle: 'default',
+          highlightLines: true,
+      })
     </script>
   </body>
 </html>
+
+var slideshow = remark.create(
+});
