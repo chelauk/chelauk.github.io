@@ -156,17 +156,10 @@ process FASTQTOBAM {
 *     --sample "sampleID" \\
 *     --library "sampleID"
 ```
----
-
-```groovy
-include { UMI_QC }       from './modules/local/subworkflow/umi_qc/umi_qc'                addParams(
-    fastqc_options:                       modules['fastqc'],
-    multiqc_options:                      modules['multiqc']
-)```
 
 
 ---
-modules.confg
+modules.config
 
 ```groovy
 'markduplicates' {
@@ -177,6 +170,13 @@ modules.confg
   publish_files2   = [ 'metrics' : 'mark_duplicates_metrics']
 }
 ```
+---
+
+```groovy
+include { UMI_QC }       from './modules/local/subworkflow/umi_qc/umi_qc'                addParams(
+    fastqc_options:                       modules['fastqc'],
+    multiqc_options:                      modules['multiqc']
+)```
 
 ---
 
