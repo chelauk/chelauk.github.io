@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2023_06_Sottoriva_Retreat</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Maven Pro', 'sans-serif'; }
+      h1, h2, h3 {
+        font-family: 'Maven Pro', 'sans-serif';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .column:first-of-type {float:left}
+      .column:last-of-type {float:right}
+
+      .split-40 .column:first-of-type {width: 40%}
+      .split-40 .column:last-of-type {width: 60%}
+      .image-33 img {width: 33%}
+      .image-50 img {width: 50%}
+      .image-75 img {width: 75%}
+      .image-80 img {width: 80%}
+      .image-90 img {width: 90%}
+      .image-100 img {width: 100%}
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Sottoriva Lab Retreat
+
+---
+
+class: split-40
+
+.column[
+# Pipelines
+* Pipelines are an essential part of processing biological data.
+* raw data is run through a series of pieces of software.
+* each piece of software has settings options and requirements.
+]
+
+
+.column[![Right-aligned image](./images/pipeline.png)]
+
+---
+.image-100[![Centre-aligned image](./images/nextflow2014_no-bg.png)]
+
+### an increasingly commonly used workflow organiser.
+* well supported
+* easy to use (-ish)
+* large community of users especially nf-core
+* scalable from laptop to cluster to cloud
+
+---
+
+The central principle of nextflow is that an
+* *input* which flows >>> 
+through the sofware application to produce an >>> *output*. 
+* This *output* can then be transported into the next process
+by means of channels
+* The these channels of data are files or variables or a mixture of both.
+* The channels can be manipulated, i.e. combined or split as needed.
+
+---
+
+The basic unit of nextflow is the <span style="font-size: 24px;"><b>process</b></span>:
+
+
+```nextflow
+process INDEX {
+    input:
+      path transcriptome # for example a fasta file
+    output:
+      path 'index' 
+    script:
+      """
+      salmon index --threads $task.cpus -t $transcriptome -i index
+      """
+  }
+```
+
+---
+
+these processes can easily be organised into workflows
+
+```nextflow
+include {} INDEX  from './some/module/index.nf' 
+include {} FASTQC from './some/module/fastq.nf'
+include {} QUANT  from './some/module/quantify.nf'
+include {} MULTIQC from './some/module/multiqc.nf'
+
+read_pairs_ch = channel.fromFilePairs( params.reads)
+
+workflow {
+* INDEX( params.transcriptome )
+  FASTQC( read_pairs_ch )
+  QUANT( INDEX.out, read_pairs_ch )
+  MULTIQC( QUANT.out.mix(FASTQC.out).collect(), multiqc_file )
+}
+```
+
+---
+
+### and subworkflows
+```nextflow
+workflow RNASEQ {
+    take:
+      transcriptome
+      read_pairs_ch
+   
+    main: 
+      INDEX(transcriptome)
+      FASTQC(read_pairs_ch)
+      QUANT(INDEX.out, read_pairs_ch)
+  
+    emit: 
+       QUANT.out.mix(FASTQC.out).collect()
+  }
+```
+
+---
+
+.image-100[![Centre-aligned image](./images/nfcore.png)]
+### 53 pipelines and counting
+
+
+---
+
+.image-33[![Centre-aligned image](./images/sarek_workflow.png)]
+```R
+nextflow run sarek -profile singularity
+```
+
+---
+
+want to build your own pipeline?
+
+```groovy
+nf-core tools create
+```
+add modules into the pipeline?
+```groovy
+nf-core tools module insert
+```
+
+
+---
+
+# software
+
+installing software is often a nightmare because of dependencies and permissions
+
+* nf-core solves that by using self contained systems like docker and singularity
+
+These are automatically downloaded and utilised when you run the pipeline.
+The docker/singularity images match those environments available on conda.
+https://depot.galaxyproject.org/singularity/
+
+---
+
+
+### logging and monitoring
+
+.image-100[![Centre-aligned image](./images/tower1.png)]
+
+
+---
+
+### logging and monitoring
+
+.image-100[![Centre-aligned image](./images/tower2.png)]
+
+---
+
+what pipelines do we have? (and why)
+
+* mutect-platypus
+  * what does it do?
+      * multiple sample mutect2 calling
+      * multiple sample platypus genotyping
+      * sequenza copy number calling
+      * CNAqc from the caravagna lab 
+      * in development battenberg mimmal for evan better copy number calling
+  * why do we need it?
+      * sarek doesn't do all these things
+
+* umialign
+  * what does it do?
+      * aligns umi tagged reads
+  * why do we need it?
+      * sarek doesn't erm, didn't do umi tagged reads, 
+      * it does now but 
+      * it requires a file format that is not compatible our current file formats.
+---
+
+* lp-wgs 
+  * what does it do?
+      * calls copy number and purity from low pass whole genome sequencing
+  * why do we need it?
+      * not yet available on sarek though they are keen for us to add it.
+
+* demultiplex-methlation 
+  * what does it do?
+      * methylation analysis pipeline with demultiplexing built in
+  * why do we need it?
+      * nf-core/methylseq doesn't do demultiplexing and isn't actually being
+actively worked on at the moment.
+
+---
+
+class: center, middle
+
+# thanks!
+
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+          highlightLanguage: 'groovy',
+          highlightStyle: 'default',
+          highlightLines: true,
+      })
+    </script>
+  </body>
+</html>
+
+var slideshow = remark.create(
+});
