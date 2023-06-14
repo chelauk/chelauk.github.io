@@ -34,145 +34,8 @@ class: center, middle
 
 ---
 
-class: split-40
-
-.column[
-# Pipelines
-* Pipelines are an essential part of processing biological data.
-* raw data is run through a series of pieces of software.
-* each piece of software has settings options and requirements.
-]
-
-
-.column[![Right-aligned image](./images/pipeline.png)]
-
----
-.image-100[![Centre-aligned image](./images/nextflow2014_no-bg.png)]
-
-### an increasingly commonly used workflow organiser.
-* well supported
-* easy to use (-ish)
-* large community of users especially nf-core
-* scalable from laptop to cluster to cloud
-
----
-
-The central principle of nextflow is that an
-* *input* which flows >>> 
-through the sofware application to produce an >>> *output*. 
-* This *output* can then be transported into the next process
-by means of channels
-* The these channels of data are files or variables or a mixture of both.
-* The channels can be manipulated, i.e. combined or split as needed.
-
----
-
-The basic unit of nextflow is the <span style="font-size: 24px;"><b>process</b></span>:
-
-
-```nextflow
-process INDEX {
-    input:
-      path transcriptome # for example a fasta file
-    output:
-      path 'index' 
-    script:
-      """
-      salmon index --threads $task.cpus -t $transcriptome -i index
-      """
-  }
-```
-
----
-
-these processes can easily be organised into workflows
-
-```nextflow
-include {} INDEX  from './some/module/index.nf' 
-include {} FASTQC from './some/module/fastq.nf'
-include {} QUANT  from './some/module/quantify.nf'
-include {} MULTIQC from './some/module/multiqc.nf'
-
-read_pairs_ch = channel.fromFilePairs( params.reads)
-
-workflow {
-* INDEX( params.transcriptome )
-  FASTQC( read_pairs_ch )
-  QUANT( INDEX.out, read_pairs_ch )
-  MULTIQC( QUANT.out.mix(FASTQC.out).collect(), multiqc_file )
-}
-```
-
----
-
-### and subworkflows
-```nextflow
-workflow RNASEQ {
-    take:
-      transcriptome
-      read_pairs_ch
-   
-    main: 
-      INDEX(transcriptome)
-      FASTQC(read_pairs_ch)
-      QUANT(INDEX.out, read_pairs_ch)
-  
-    emit: 
-       QUANT.out.mix(FASTQC.out).collect()
-  }
-```
-
----
-
-.image-100[![Centre-aligned image](./images/nfcore.png)]
-### 53 pipelines and counting
-
-
----
-
-.image-33[![Centre-aligned image](./images/sarek_workflow.png)]
-```R
-nextflow run sarek -profile singularity
-```
-
----
-
-want to build your own pipeline?
-
-```groovy
-nf-core tools create
-```
-add modules into the pipeline?
-```groovy
-nf-core tools module insert
-```
-
-
----
-
-# software
-
-installing software is often a nightmare because of dependencies and permissions
-
-* nf-core solves that by using self contained systems like docker and singularity
-
-These are automatically downloaded and utilised when you run the pipeline.
-The docker/singularity images match those environments available on conda.
-https://depot.galaxyproject.org/singularity/
-
----
-
-
-### logging and monitoring
-
-.image-100[![Centre-aligned image](./images/tower1.png)]
-
-
----
-
-### logging and monitoring
-
-.image-100[![Centre-aligned image](./images/tower2.png)]
+# database
+  * cautionary tale
 
 ---
 
@@ -200,7 +63,8 @@ what pipelines do we have? (and why)
 * lp-wgs 
   * what does it do?
       * calls copy number and purity from low pass whole genome sequencing
-  * why do we need it?
+      * ichor and ace
+      * why do we need it?
       * not yet available on sarek though they are keen for us to add it.
 
 * demultiplex-methlation 
@@ -212,9 +76,9 @@ actively worked on at the moment.
 
 ---
 
-class: center, middle
-
-# thanks!
+others:
+* deepvariant
+* ega-upload
 
 
 
