@@ -39,6 +39,7 @@ So I had to convert my desktop to a linux one, learn all the tools etc.
 
 To complete my conversion, I moved to GOSgene a collaboration between the UCL
 institute of child health and Great Ormond Street hospital,
+:::
 
 ## Bill Lyons Informatics Centre UCL {.blic-slide }
 
