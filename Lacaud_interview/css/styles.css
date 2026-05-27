@@ -1,0 +1,78 @@
+body,
+.reveal {
+  background-color: #2b2b2b;
+}
+
+.reveal .slides section.title-slide {
+  position: relative;
+  text-align: left;
+  height: 100%;
+  color: white;
+}
+
+.reveal .slides section.title-slide h2 {
+  display: none;
+}
+
+.reveal .slides section.title-slide .title-line {
+  position: absolute;
+  top: 4%;
+  left: 5%;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.reveal .slides section.title-slide .title-line p {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
+.reveal .slides section.title-slide .talk-title {
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1;
+  color: white;
+}
+
+.reveal .slides section.title-slide .talk-author,
+.reveal .slides section.title-slide .talk-date {
+  font-size: 0.45em;
+  line-height: 1;
+  color: white;
+}
+
+.reveal .slides section.blic-slide h2 {
+  color: white !important;
+}
+
+.reveal .slides section.blic-slide {
+  display: block !important;
+  top: 0 !important;
+  text-align: left;
+  color: white;
+  background-color: #2b2b2b;
+  padding-top: 5%;
+}
+
+.reveal .slides section.blic-slide,
+.reveal .slides section.blic-slide h2,
+.reveal .slides section.blic-slide h3,
+.reveal .slides section.blic-slide p,
+.reveal .slides section.blic-slide li,
+.reveal .slides section.blic-slide a,
+.reveal .slides section.blic-slide a:visited {
+  color: white !important;
+}
+
+.reveal .slides section.blic-slide a,
+.reveal .slides section.blic-slide a:visited,
+.reveal .slides section.blic-slide a:hover,
+.reveal .slides section.blic-slide a:active {
+  color: white !important;
+  text-decoration: underline;
+}
+

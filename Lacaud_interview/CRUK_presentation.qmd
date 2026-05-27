@@ -1,0 +1,88 @@
+---
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    css: css/styles.css
+---
+
+## {.title-slide background-image="sources/buildings.jpeg" background-size="contain" background-color="#2b2b2b" background-position="center" background-repeat="no-repeat"}
+
+::: {.title-line}
+<span class="talk-title">CRUK Lab meeting</span>
+<span class="talk-author">Chela James</span>
+<span class="talk-date">02/06/2026</span>
+:::
+
+## {.history-slide background-image="sources/history.jpeg"  background-size="contain" background-color="#2b2b2b" background-position="center" background-repeat="no-repeat" }
+
+::: {.notes}
+PhD on C.elegans molecular neurobiology, my first time doing molecular biolog
+plasmid preps, southern blotting, microscopy and microinjection 
+C.elegans to express gene flourescent markers
+
+1st postdoc looking at tooth development in mice, particularly interested in the 
+initiation of development in the mandible. The second pharyngeal arch which 
+developes into stuctues of the face neck and doesn't have teeth. We thought that
+HoxA2 may be responsible for this repression. However we showed using over-
+expression of HoxA2 in the first arch and by taking 2nd arch mesenchyme into the
+first arch, this wasn't the case
+
+My third postdoc was with Peter Scambler at UCL focusing on 22q11.2 deletion syndrome
+We focused on investing the gene TBX1 which is haplo-insufficient in DiGeorge 
+
+The next postdoc was a change to investigating hyperinsulinemic hypoglycemia and 
+this where I begin my bioinformatics journey. We were looking at paediatric cases 
+with inherited hypoglycaemia and my PI gave me some ngs whole exome data, this 
+was a challenge up to that point I used my computer for writing, browsing and excel
+So I had to convert my desktop to a linux one, learn all the tools etc.
+
+To complete my conversion, I moved to GOSgene a collaboration between the UCL
+institute of child health and Great Ormond Street hospital,
+
+## Bill Lyons Informatics Centre UCL {.blic-slide }
+
+- [scRNAseq with Charlotta Böiers](html_sources/figures_sep_2-019.html){target="_blank"}
+- [scRNAseq with Emanuele Azzoni](html_sources/azzoni.html){target="_blank"}
+- [WGS with Ifat Geron](sources/49_clean.modeled.png){target="_blank"}
+
+::: {.notes}
+Charlotta's paper looked a childhood acute B-lymphoblastic leukemia (ALL)
+showed that the difference in cell lineage between foetal and adult lymphocytes
+
+Emanuele's paper demostrate that blood flow is not necessary for phenotypic 
+hemogenic endothelium and pro-HSCs emerge, but they fail to properly activate 
+the hematopoietic programme and do not mature into functional HSCs.
+
+IL7RA activation initiates and maintains a vulnerable preleukemic B-progenitor 
+state; that state can then acquire genomic deletions, probably through 
+prolonged/aberrant recombination-associated damage and selection.
+:::
+
+## Institute of Cancer Research with Andrea Sottoriva {.blic-slide}
+
+### scale change
+- Handling 100s of deep whole genome samples -> alignment -> variant/cnv calling ->
+QC
+- mass upload to EGA
+- [EPICC](sources/epicc.jpg){target="_blank"}
+
+::: {.notes}
+We found positive selection for DNA mutations in chromatin modifier genes and
+recurrent somaticchromatin accessibility alterations, including in regulatory 
+regions of cancer drivergenes that were otherwise devoid of genetic mutations. 
+:::
+
+## Fondazione Human Technopole with Andrea Sottoriva {.blic-slide }
+
+- Handling 100s of deep whole genome samples -> alignment -> variant/cnv calling 
+- [ CNA_data ](sources/INT_C193_T1_p4_data.jpg){target="_blank"}
+- [ CNA_qc ](sources/INT_C193_T1_p4_qc.jpg){target="_blank"}
+- [ subclone analysis](sources/INT_C193_T1_p4_REPORT_plots_mobster.jpg){target="_blank"}
+- Bacterial genome assembly
+- [Nanopore methlyseq ](sources/nanopore_cfDNA.jpg){target="_blank"}
+
+## {.summary-slide background-image="sources/skills.jpg"  background-size="contain" background-position="center" background-repeat="no-repeat" }
+
+
+

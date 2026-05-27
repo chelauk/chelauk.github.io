@@ -1,0 +1,94 @@
+---
+title: "ICR Interview Presentation"
+author: "Chela James"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    chakra: libs/remark-latest.min.js
+  nature:
+    highlightStyle: github
+    highlightLines: true
+    countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: center, middle
+background-image: url('ICR_presentation-figure/roger_stevens.jpg')
+# PhD.  Leeds University
+
+
+---
+class: center, middle
+background-image: url('ICR_presentation-figure/guys.jpg')
+# Kings College London: Guy's and St Thomas' Hospital
+
+---
+class: centre, middle
+background-image: url('ICR_presentation-figure/ich.jpg')
+# University College London: Institute of Child Health
+## Molecular Heart Development
+## Hyperinsulinaemic Hypoglycaemia
+## GOSgene
+
+---
+class: center, middle
+background-image: url('ICR_presentation-figure/ci.jpg')
+# University College London: Cancer Institute
+
+---
+
+#ICH
+## Hyperinsulinaemic Hypoglycaemia group:
+### Homozygosity mapping
+### First time working with 'NGS'
+
+--
+- Windows to Linux
+- Lots of help from patient bioinformaticians
+---
+class: left, left
+background-image: url('ICR_presentation-figure/gosgene_pipe.png')
+background-position: right
+## GOSgene
+### First employment 
+### as a dedicated bioinformatician
+--
+
+- Working with HPC
+- bash pipeline
+- small scale databases
+
+---
+class: left, left
+# Cancer Institute
+- bulk RNA-seq
+- scRNA-seq
+- ATAC-seq
+- ChIP-seq
+
+---
+class: left, left
+background-image: url('ICR_presentation-figure/bulk_rna.png')
+background-position: right
+background-size: contain
+# RNA-seq
+
+---
+class: left, left
+# Example 1
+ <a href="RAJ_RNA_seq.html">Bulk RNA-seq Report</a> 
+
+---
+class: left,left
+# Example 2
+<a href="azzoni.html">Single Cell RNA-seq Report</a>
+
+---
+class: left,left
+# Example 3
+<a href="shiny example">https://chelauk.shinyapps.io/norm_gene_counts/</a>
+
