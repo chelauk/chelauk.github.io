@@ -17,16 +17,18 @@ format:
 ## {.history-slide background-image="sources/history.jpeg"  background-size="contain" background-color="#2b2b2b" background-position="center" background-repeat="no-repeat" }
 
 ::: {.notes}
-PhD on C.elegans molecular neurobiology, my first time doing molecular biolog
-plasmid preps, southern blotting, microscopy and microinjection 
-C.elegans to express gene flourescent markers
+I did my PhD on C.elegans molecular neurobiology, my first time doing molecular biology
+things like molecular cloning, southern blotting, microscopy and particularly  microinjection 
+of gfp marker constructs showing the expression of genes in vivo
 
-1st postdoc looking at tooth development in mice, particularly interested in the 
-initiation of development in the mandible. The second pharyngeal arch which 
-developes into stuctues of the face neck and doesn't have teeth. We thought that
-HoxA2 may be responsible for this repression. However we showed using over-
-expression of HoxA2 in the first arch and by taking 2nd arch mesenchyme into the
-first arch, this wasn't the case
+During my 1st postdoc at KCL with Professor Sharpe, we were looking at tooth development in mice, we were 
+particularly interested in the initiation of development in the mandible. 
+The second pharyngeal arch which develops into structures of the face and neck 
+and not teeth. We hypothesised that HoxA2 may be responsible for this repression. 
+However we showed using over-expression of HoxA2 in the first arch and by taking 
+2nd arch mesenchyme into the first arch, we showed this wasn't the case.  We also
+investigated the role of Islet1 in tooth development showing its role in tooth-type
+determination.
 
 My third postdoc was with Peter Scambler at UCL focusing on 22q11.2 deletion syndrome
 We focused on investing the gene TBX1 which is haplo-insufficient in DiGeorge 
@@ -38,7 +40,9 @@ was a challenge up to that point I used my computer for writing, browsing and ex
 So I had to convert my desktop to a linux one, learn all the tools etc.
 
 To complete my conversion, I moved to GOSgene a collaboration between the UCL
-institute of child health and Great Ormond Street hospital,
+institute of child health and Great Ormond Street hospital.  Here I began to work with 
+whole genome sequencing data from paediatric patients with inherited disorders.
+I created bash scripts to automate the process alignment QC and variant calling.
 :::
 
 ## Bill Lyons Informatics Centre UCL {.blic-slide }
@@ -58,20 +62,31 @@ the hematopoietic programme and do not mature into functional HSCs.
 IL7RA activation initiates and maintains a vulnerable preleukemic B-progenitor 
 state; that state can then acquire genomic deletions, probably through 
 prolonged/aberrant recombination-associated damage and selection.
+
+What I enjoyed about these projects was the interaction with investigators, 
+there was back and forth between me and say Emanuele where he would be hoping 
+to see something that wasn't immediately apparent, coming from a biological 
+background I understand that viewpoint and we were willing to explore the data
+with various approaches to try and find the answer.
+
 :::
 
 ## Institute of Cancer Research with Andrea Sottoriva {.blic-slide}
 
 ### scale change
+- [EPICC](sources/epicc.jpg){target="_blank"}
 - Handling 100s of deep whole genome samples -> alignment -> variant/cnv calling ->
 QC
 - mass upload to EGA
-- [EPICC](sources/epicc.jpg){target="_blank"}
+- [ Organising data in a rational way ](sources/organising_data.png){target="_blank"}
 
 ::: {.notes}
 We found positive selection for DNA mutations in chromatin modifier genes and
-recurrent somaticchromatin accessibility alterations, including in regulatory 
-regions of cancer drivergenes that were otherwise devoid of genetic mutations. 
+recurrent somatic chromatin accessibility alterations, including in regulatory 
+regions of cancer driver genes that were otherwise devoid of genetic mutations.
+
+Here I also had the responsiblity to handle 'big data' organising the data in a 
+rational way, dealing with mass upload to the EGA
 :::
 
 ## Fondazione Human Technopole with Andrea Sottoriva {.blic-slide }
@@ -82,6 +97,9 @@ regions of cancer drivergenes that were otherwise devoid of genetic mutations.
 - [ subclone analysis](sources/INT_C193_T1_p4_REPORT_plots_mobster.jpg){target="_blank"}
 - Bacterial genome assembly
 - [Nanopore methlyseq ](sources/nanopore_cfDNA.jpg){target="_blank"}
+
+::: {.notes}
+
 
 ## {.summary-slide background-image="sources/skills.jpg"  background-size="contain" background-position="center" background-repeat="no-repeat" }
 
