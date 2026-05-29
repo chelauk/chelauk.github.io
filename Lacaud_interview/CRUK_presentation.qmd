@@ -78,7 +78,7 @@ with various approaches to try and find the answer.
 - Handling 100s of deep whole genome samples -> alignment -> variant/cnv calling ->
 QC
 - mass upload to EGA
-- [ Organising data in a rational way ](sources/organising_data.png){target="_blank"}
+
 
 ::: {.notes}
 We found positive selection for DNA mutations in chromatin modifier genes and
@@ -95,11 +95,22 @@ rational way, dealing with mass upload to the EGA
 - [ CNA_data ](sources/INT_C193_T1_p4_data.jpg){target="_blank"}
 - [ CNA_qc ](sources/INT_C193_T1_p4_qc.jpg){target="_blank"}
 - [ subclone analysis](sources/INT_C193_T1_p4_REPORT_plots_mobster.jpg){target="_blank"}
+- [ Organising data in a rational way ](sources/organising_data.png){target="_blank"}
 - Bacterial genome assembly
 - [Nanopore methlyseq ](sources/nanopore_cfDNA.jpg){target="_blank"}
 
 ::: {.notes}
-
+  My main role here is handling large scale whole genome sequencing data and building
+  databases to make sure the data locations are easy to find.
+  I have also enjoyed several projects like bacterial genome assembly where a group
+  at HT was looking a bacterial growth dynamics and basically I was tasked with assembling
+  the genomes after mutagenesis.
+  I have closely worked with group members, for example with one of the postdocs looking at 
+  cfDNA methylation, we took nanopore data and were able to show using methylation patterns
+  where the cfDNA was coming from.
+  
+  
+:::
 
 ## {.summary-slide background-image="sources/skills.jpg"  background-size="contain" background-position="center" background-repeat="no-repeat" }
 
